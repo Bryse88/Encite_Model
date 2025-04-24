@@ -1,0 +1,12 @@
+designated_regions:
+  - name: "Madison, WI"
+    lat_range: [43.01, 43.12]
+    lng_range: [-89.45, -89.35]
+  # - name: "Chicago, IL"
+  #   lat_range: [41.80, 42.05]
+  #   lng_range: [-87.90, -87.55]
+default_source: "external"
+fallback_sources:
+  - google_places
+  - foursquare
+  - ticketmaster

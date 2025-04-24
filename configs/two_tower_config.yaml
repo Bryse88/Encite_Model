@@ -1,0 +1,41 @@
+# Two-Tower Model Configuration
+
+# Data loading configuration
+data:
+  cache_path: "data/two_tower_cache.pt"
+  limit: null  # Set to limit the number of documents loaded (for testing)
+  val_ratio: 0.1  # Ratio of data for validation
+  test_ratio: 0.1  # Ratio of data for testing
+  split_by_user: true  # Whether to split by users
+  negative_sampling: "hard"  # "random", "popular", or "hard"
+  neg_samples_per_pos: 4  # Number of negative samples per positive
+
+# Model architecture
+model:
+  hidden_layers: [128, 64]  # Hidden layer dimensions for both towers
+  output_dim: 64  # Output embedding dimension
+  dropout: 0.1  # Dropout rate
+  temperature: 0.1  # Temperature for scaling dot products
+  use_context: false  # Whether to use contextual features
+  context_dim: 8  # Dimension of context features (if used)
+  context_layers: [64, 32]  # Hidden layers for context network (if used)
+
+# Training configuration
+training:
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  num_epochs: 50
+  patience: 5  # Patience for learning rate scheduler
+  use_in_batch_negatives: false  # Whether to use in-batch negatives
+  num_workers: 4  # Number of worker processes for data loading
+
+# Export configuration
+export:
+  batch_size: 500  # Batch size for exporting embeddings
+  collection_prefix: ""  # Prefix for Firestore collections
+  index_name: "encite-embeddings"  # Name of Pinecone index
+
+# Logging configuration
+logging:
+  log_interval: 10  # Log training progress every N batches
