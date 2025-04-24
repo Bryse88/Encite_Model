@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  two_tower_api:
+    build: ./apps/two_tower_api
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=/models/two_tower
+    volumes:
+      - ./models/two_tower:/models/two_tower
+
+  rl_scheduler_api:
+    build: ./apps/rl_scheduler_api
+    ports:
+      - "8001:8001"
+    environment:
+      - MODEL_PATH=/models/ppo
+    volumes:
+      - ./models/reinforcement_learning:/models/ppo
+
+  firebase_emulator:
+    image: google/cloud-sdk:latest
+    ports:
+      - "4000:4000"
+      - "8080:8080"
+      - "9000:9000"
+    volumes:
+      - ./apps/firebase_functions:/workspace
+    working_dir: /workspace
+    command: >
+      bash -c "firebase emulators:start --only firestore,functions --project encite-dev"
