@@ -1,0 +1,39 @@
+# HGT Model Configuration
+
+# Data loading configuration
+data:
+  project_id: "encite-ai-platform"
+  cache_path: "data/graph_cache.pt"
+  force_reload: false  # Set to true to reload from Firestore
+  limit: null  # Set to limit the number of nodes loaded (for testing)
+
+# Model architecture
+model:
+  embedding_dim: 64       # Final embedding dimension
+  hidden_dim: 128         # Hidden layer dimension
+  num_heads: 4            # Number of attention heads
+  num_layers: 3           # Number of graph transformer layers
+  dropout: 0.2            # Dropout rate
+  use_temporal: true      # Whether to use temporal encoding
+
+# Training configuration
+training:
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  num_epochs: 100
+  patience: 10            # Patience for early stopping
+  checkpoint_interval: 10  # Save checkpoint every N epochs
+  neg_samples: 1          # Number of negative samples per positive
+  use_hgt_loader: true    # Whether to use HGTLoader or NeighborLoader
+  num_workers: 4          # Number of worker processes for data loading
+
+# Pinecone configuration (for vector DB)
+pinecone:
+  index_name: "encite-embeddings"
+  environment: "us-west1-gcp"
+
+# Logging configuration
+logging:
+  log_interval: 10        # Log training progress every N batches
+  eval_interval: 1        # Evaluate model every N epochs

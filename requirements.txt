@@ -1,0 +1,34 @@
+# Core ML and Graph Learning
+torch>=2.0.0
+torch-geometric>=2.4.0
+torch-scatter>=2.1.1
+torch-sparse>=0.6.17
+
+# Supabase / PostgreSQL connector
+psycopg2-binary>=2.9.6
+
+# YAML config parsing
+pyyaml>=6.0
+
+# For embedding visualization (optional)
+matplotlib>=3.7.1
+scikit-learn>=1.2.2
+
+# Logging + CLI utilities
+tqdm>=4.66.1
+rich>=13.5.2
+
+# For subprocess-based training/inference orchestration
+subprocess32; platform_system=="Linux"
+
+# Firestore export fallback (optional if still using Firestore)
+google-cloud-firestore>=2.10.0
+
+# Pinecone (optional for vector DB export)
+pinecone-client>=2.2.2
+
+# Optional experiment tracking
+wandb>=0.16.0
+
+# Safe runtime evaluation for numerical ops
+numpy>=1.24.3
