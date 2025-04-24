@@ -77,32 +77,156 @@ Uses reinforcement learning to optimize schedule creation with multiple constrai
 ### Project Structure
 
 ```
-encite-ai-scheduler/
-├── graph-service/           # GNN implementation
-│   ├── model.py             # HGT model definition
-│   ├── training.py          # Training pipeline
-│   └── service.py           # FastAPI service
-├── two-tower-service/       # Recommendation model
-│   ├── model.py             # Two-tower architecture
-│   ├── training.py          # Training pipeline 
-│   └── service.py           # FastAPI service
-├── rl-scheduler-service/    # RL-based scheduler
-│   ├── environment.py       # Custom gym environment
-│   ├── model.py             # PPO agent
-│   ├── training.py          # Training pipeline
-│   └── service.py           # FastAPI service
-├── firebase/                # Firebase functions
-│   ├── functions/index.js   # Cloud Functions
-│   └── firestore.rules      # Security rules
-├── flutter-app/             # Mobile application
-│   ├── lib/                 # Dart code
-│   └── assets/              # App assets
-├── scripts/                 # Utility scripts
-│   ├── data_processing.py   # Data processing
-│   └── evaluation.py        # System evaluation
-└── deployment/              # Deployment configs
-    ├── docker-compose.yml   # Local deployment
-    └── cloudbuild.yaml      # GCP deployment
+encite-ai-platform/
+│
+├── README.md
+├── .env.example
+├── pyproject.toml             # Modern Python dependency management
+├── setup.py                   # For installing as a package
+├── docker-compose.yml
+│
+├── .github/
+│   └── workflows/
+│       ├── deploy.yml         # CI/CD for deploying services
+│       ├── test.yml           # Automated test runs
+│       └── model_train.yml    # Scheduled model retraining
+│
+├── apps/
+│   ├── firebase_functions/
+│   │   ├── functions/
+│   │   │   ├── schedule/
+│   │   │   ├── feedback/
+│   │   │   └── auth/
+│   │   └── firestore.rules
+│   │
+│   ├── two_tower_api/
+│   │   ├── Dockerfile
+│   │   ├── main.py
+│   │   ├── app/
+│   │   │   ├── api/
+│   │   │   ├── core/
+│   │   │   ├── models/
+│   │   │   └── services/
+│   │   ├── tests/
+│   │   └── requirements.txt
+│   │
+│   ├── rl_scheduler_api/     # Similar structure as two_tower_api
+│   └── feedback_logger/      # Service for handling user feedback
+│
+├── models/
+│   ├── graph_transformer/
+│   │   ├── train.py          # Training loop 
+│   │   ├── model.py          # HGT definition
+│   │   ├── dataset_loader.py # Loads graph from Firestore
+│   │   ├── evaluation.py     # Model evaluation metrics
+│   │   ├── configs/          # Configuration files
+│   │   └── utils.py
+│   │
+│   ├── two_tower/
+│   │   ├── train.py
+│   │   ├── model.py
+│   │   ├── dataset.py
+│   │   ├── evaluation.py
+│   │   ├── configs/
+│   │   └── export_embeddings.py
+│   │
+│   └── reinforcement_learning/
+│       ├── env/
+│       │   ├── schedule_env.py       # ScheduleEnv gym environment
+│       │   └── reward_functions.py   # Custom reward calculations
+│       ├── train.py                  # PPO training loop
+│       ├── policies/
+│       │   ├── mlp_policy.py
+│       │   └── transformer_policy.py # Alternative architecture
+│       ├── fine_tune.py              # Feedback-based fine-tuning
+│       ├── configs/
+│       └── evaluate.py               # Evaluate policy performance
+│
+├── services/
+│   ├── api_clients/
+│   │   ├── google/
+│   │   │   ├── places.py
+│   │   │   ├── distance_matrix.py
+│   │   │   └── maps.py
+│   │   ├── ticketmaster.py
+│   │   ├── openweather.py
+│   │   └── uber.py
+│   │
+│   ├── schedule_pipeline/
+│   │   ├── generate_schedule.py    # Orchestrates entire flow
+│   │   ├── preprocess.py           # Clean + normalize inputs
+│   │   ├── rank_candidates.py      # Two-Tower matching
+│   │   ├── build_schedule.py       # RL-based sequence generation
+│   │   └── postprocess.py          # Format schedule for response
+│   │
+│   ├── embedding_updater/
+│   │   ├── export_firestore_graph.py
+│   │   ├── update_embeddings.py    # Triggers model & writes back to DB
+│   │   └── cron_config.yaml        # GCP Cloud Scheduler config
+│   │
+│   └── data_collectors/
+│       ├── places_updater.py     # Daily update of place data
+│       ├── events_collector.py   # Pulls from Ticketmaster
+│       └── weather_updater.py    # Pre-fetches weather forecasts
+│
+├── database/
+│   ├── firestore/
+│   │   ├── schema/
+│   │   │   ├── users.json
+│   │   │   ├── places.json
+│   │   │   └── events.json
+│   │   └── seed_data/
+│   │       ├── sample_users.json
+│   │       ├── sample_places.json
+│   │       └── sample_events.json
+│   │
+│   ├── pinecone/
+│   │   └── index_creation.py    # Vector DB setup
+│   │
+│   └── migrations/
+│       └── add_embeddings_field.py
+│
+├── configs/
+│   ├── rl_config.yaml
+│   ├── hgt_config.yaml
+│   ├── api_config.yaml
+│   ├── firebase_config.json
+│   ├── logging_config.yaml
+│   ├── data_source_config.yaml
+│   └── environment/
+│       ├── development.env
+│       ├── staging.env
+│       └── production.env
+│
+├── notebooks/
+│   ├── model_exploration/
+│   │   ├── graph_visualization.ipynb
+│   │   ├── embedding_exploration.ipynb
+│   │   └── reward_function_tuning.ipynb
+│   └── data_analysis/
+│       ├── user_behavior.ipynb
+│       ├── place_popularity.ipynb
+│       └── schedule_quality.ipynb
+│
+└── tests/
+    ├── unit/
+    │   ├── models/
+    │   │   ├── test_graph.py
+    │   │   ├── test_two_tower.py
+    │   │   └── test_policy.py
+    │   ├── services/
+    │   │   ├── test_api_clients.py
+    │   │   └── test_schedule_pipeline.py
+    │   └── env/
+    │       └── test_schedule_env.py
+    │
+    ├── integration/
+    │   ├── test_generate_schedule_flow.py
+    │   ├── test_user_feedback_loop.py
+    │   └── test_embedding_updates.py
+    │
+    └── e2e/
+        └── test_full_system.py
 ```
 
 ## Running Services Locally
