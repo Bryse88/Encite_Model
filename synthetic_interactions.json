@@ -1,0 +1,1784 @@
+[
+  {
+    "user_id": 0,
+    "entity_id": "cf32b3ac-8388-4c61-9ad7-895e3774c1e5",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 0,
+    "entity_id": "f2d3822f-9cc1-4327-bdcb-a17b7b0f00ae",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 0,
+    "entity_id": "e99fc2c3-d90a-42b1-aace-bc3130a1dd40",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 0,
+    "entity_id": "fb374cf9-07f1-44f2-ac74-63a8c02fd82b",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 0,
+    "entity_id": "215a5ff2-1433-41b0-8fe1-702548ccfba2",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 0,
+    "entity_id": "9532db13-e8e3-40b8-8035-f9753c9f1b8f",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 0,
+    "entity_id": "380f9db1-073f-44ac-9ac3-7d8b5fe2caed",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 0,
+    "entity_id": "6ac5c43e-413c-4944-8e7c-0d43ab79e298",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 0,
+    "entity_id": "6d545bc9-c205-49ca-acb6-099b0aa1b42f",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 1,
+    "entity_id": "348ea3d8-1b3a-4b2a-80fd-9506d62c341a",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 1,
+    "entity_id": "1eefa3d8-a96b-476e-80e3-da76f8beac0c",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 1,
+    "entity_id": "68be5891-d31d-4ee6-a17d-99be0bfa95b4",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 1,
+    "entity_id": "81b59af7-2358-403d-aa2c-b7049534d4ba",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 1,
+    "entity_id": "fed4e2f5-4e10-4fae-b77c-d5f35c8e64ed",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 1,
+    "entity_id": "01edca6a-a34c-4a97-a750-f6f425c90747",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 1,
+    "entity_id": "56687436-00db-4300-b3c8-c5c5d2cf16a3",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 1,
+    "entity_id": "d4d9c2a3-5233-433b-97a9-4f3aca82280f",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 1,
+    "entity_id": "7f8491a3-30ad-4a34-ab60-ff99dd0d4470",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 1,
+    "entity_id": "b82fd140-6df1-4b7f-b171-fa9a872ca057",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 1,
+    "entity_id": "2f9c3e9f-6d1e-46f6-8dee-f573baf68e09",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 2,
+    "entity_id": "74da5484-f101-465c-b30e-1cc6d9f530eb",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 2,
+    "entity_id": "35bcb3fa-b46d-460b-be9e-d40beb031478",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 2,
+    "entity_id": "50ec39ca-6dd2-4d82-803a-26bca632a742",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 2,
+    "entity_id": "9d356f10-9985-4b19-a649-1699e0785839",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 2,
+    "entity_id": "199cca52-b888-4789-b616-00f4318fe224",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 2,
+    "entity_id": "2faa107d-1d6f-4864-94e0-de8fe32ae4eb",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 2,
+    "entity_id": "fa3531e0-071a-4c39-b508-bfa27f074120",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 2,
+    "entity_id": "84c7614a-5c07-4a71-a3dd-db3106194a93",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 2,
+    "entity_id": "09d3c408-d9ed-4105-8d5b-479321861ec8",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 2,
+    "entity_id": "1605c70d-b1c4-486b-af19-acaadb62033f",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 2,
+    "entity_id": "9b72070c-73b2-42e5-9dc7-11a22e5bee39",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 3,
+    "entity_id": "226636d2-798d-4393-8526-431142447118",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 3,
+    "entity_id": "d3904f46-1bdc-4df6-9252-cb2585cdf982",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 3,
+    "entity_id": "72b6d4a9-3864-4590-8229-4bbc2a86ae6d",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 3,
+    "entity_id": "64d998bd-921b-445e-b7c3-489317ad7fb5",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 3,
+    "entity_id": "e9a7d97e-afa5-4368-9d65-1853c44df2e3",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 3,
+    "entity_id": "39ecbc6d-18fd-43ab-9524-7112faa826ae",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 3,
+    "entity_id": "1ec38e24-0897-4407-a4c2-15ce87d21cc8",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 4,
+    "entity_id": "0b4f4f98-f931-4832-8aea-f0c241cbeced",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 4,
+    "entity_id": "2d9f9a20-5b61-44c9-b630-d158c65a37c1",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 4,
+    "entity_id": "1bb34dbe-38a9-4924-b1ca-fd73da8cb75f",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 4,
+    "entity_id": "a1dfafea-93d6-4945-a015-f2a52c36ea13",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 4,
+    "entity_id": "2d0ea07c-0924-4f36-b3b5-a16020825696",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 4,
+    "entity_id": "410c9ab6-3212-4dd9-833f-47837a8a2e44",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 4,
+    "entity_id": "bc72be03-4a23-4d7d-86b5-b4dd005a27bd",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 4,
+    "entity_id": "3e25e42d-5deb-4be9-ac1a-c8e79af74419",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 4,
+    "entity_id": "ed294405-6fce-48d2-8046-ae1e000215e2",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 5,
+    "entity_id": "2c1f3f22-edfe-44a1-a247-ca834f2f9e2f",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 5,
+    "entity_id": "a1a247b1-2eb1-4b27-8a6f-ce11b1da15aa",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 5,
+    "entity_id": "5e4a2d1d-9f05-44a6-bf2a-df5a7b13dacb",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 5,
+    "entity_id": "d4988008-84a3-4ac1-92d7-b005287a3ee2",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 5,
+    "entity_id": "0f5373ef-1c4a-4243-b63c-75639de7f24f",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 5,
+    "entity_id": "1aed8a61-7837-494d-a54e-300de367e73f",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 5,
+    "entity_id": "fda8a195-b363-42be-958a-f1f38820ea58",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 5,
+    "entity_id": "063e07ec-1e9f-4597-b1ed-d1ef0c4111a2",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 5,
+    "entity_id": "4d33d281-b709-479d-a409-10735e1b0bb8",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 6,
+    "entity_id": "01afa78d-918c-4296-8456-ff7a34bdc341",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 6,
+    "entity_id": "5319a640-c1df-4ce3-a6a1-3dec5b2bf90c",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 6,
+    "entity_id": "f5784115-4d49-4600-abfe-183dc5e4caa6",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 6,
+    "entity_id": "7b8171f3-7ff8-4711-9ad7-612f7044e468",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 6,
+    "entity_id": "507cba13-ba39-41f8-b485-0f425af714fb",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 6,
+    "entity_id": "2b6a77a4-e9e6-4489-9c31-9f100e4a2a8c",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 6,
+    "entity_id": "7979cbf9-2975-4bbd-8564-59da94c9a45d",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 6,
+    "entity_id": "6cb41626-b019-400e-b321-81d91a5d2dee",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 6,
+    "entity_id": "564e032d-9c7f-44da-9adf-fc4141388bda",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 7,
+    "entity_id": "29ba0e48-8fd4-488e-a73e-886c35d93390",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 7,
+    "entity_id": "a8cf3177-103c-4f52-9f2c-2dbb616aab78",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 7,
+    "entity_id": "c9677de7-fc7e-48a2-a905-1ab6185c479f",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 7,
+    "entity_id": "34f08984-84d7-4854-88dc-211434ffc032",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 7,
+    "entity_id": "2bdd04df-49c0-4988-891c-636edbf69705",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 7,
+    "entity_id": "d9841cb5-9d51-4ef8-903a-8ee3e6f12949",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 7,
+    "entity_id": "28db1925-91ca-4d76-bb73-cc903faee63a",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 8,
+    "entity_id": "7bd5124c-6ff0-419a-bc48-a8873a7bcf13",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 8,
+    "entity_id": "aee0f22e-e9cd-40bf-8a57-0eee5978a9fd",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 8,
+    "entity_id": "fda8a195-b363-42be-958a-f1f38820ea58",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 8,
+    "entity_id": "5429a9e6-4022-4fb9-92a3-7badfea6b6b1",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 8,
+    "entity_id": "30a1150d-0ccf-46be-8aa6-247fd2c4fabe",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 8,
+    "entity_id": "5d2a8f9e-0ad8-42cc-8d7b-86e697932b59",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 8,
+    "entity_id": "388a867e-b962-467c-b8d4-bc657bcbec26",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 9,
+    "entity_id": "ff2ac360-6452-4c4a-abd9-b1745d592f1d",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 9,
+    "entity_id": "bb5a9eeb-dcc5-4611-ad20-8fbfa93cf115",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 9,
+    "entity_id": "bce9d7c9-9412-4de0-913e-6ef4e56d8fee",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 9,
+    "entity_id": "94ac24ab-a90a-4057-ad88-7199396ab80d",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 9,
+    "entity_id": "69917a8f-aaf0-48ac-a46a-f0530538721a",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 9,
+    "entity_id": "6c9dbe4a-c2f7-44e3-9a11-3cbc0d683018",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 9,
+    "entity_id": "25da5fa0-76fc-4547-b43a-87110ebef2b5",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 9,
+    "entity_id": "2ecf3af3-2d04-426f-9956-603408192af5",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 9,
+    "entity_id": "6bf1be9f-756f-4a64-bdbf-51dc2149360f",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 9,
+    "entity_id": "e7b69c44-f7b2-4461-98ab-8e2b267287b2",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 10,
+    "entity_id": "dfea1134-6fbf-423d-8ebc-82c476761901",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 10,
+    "entity_id": "69917a8f-aaf0-48ac-a46a-f0530538721a",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 10,
+    "entity_id": "80dfb162-1b0f-45d9-b19f-71e9d2e7fb0b",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 10,
+    "entity_id": "a56e33ff-314f-49ba-aade-952cb533dc23",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 10,
+    "entity_id": "72ede189-9ac0-49e5-af6b-fd7b230d53d7",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 10,
+    "entity_id": "0487c1f4-59c7-4fab-86de-ff4a329a5cf6",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 10,
+    "entity_id": "028d8efd-ef2a-4f7b-8c98-c96d66d3426a",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 10,
+    "entity_id": "8fa31011-28b8-4ed1-8947-0422f18ad4fd",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 10,
+    "entity_id": "fd6c00a2-63e2-44b5-8332-747766b92974",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 10,
+    "entity_id": "8025259b-a66c-415e-98b4-adbb67dd8024",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 10,
+    "entity_id": "4d33d281-b709-479d-a409-10735e1b0bb8",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 10,
+    "entity_id": "f26e0d81-3faf-4c6d-8996-cabe0ee87b08",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 10,
+    "entity_id": "618b4e4e-119a-4fe4-be3f-74032f8cccc8",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 10,
+    "entity_id": "4a36016f-dc19-4d86-8e66-7361e86cbd24",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 11,
+    "entity_id": "22397904-9a96-42de-bb17-c4528944ab6c",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 11,
+    "entity_id": "a0e5a8a8-e096-4566-a42a-b402c475250b",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 11,
+    "entity_id": "9e179017-6a85-4f00-a647-26a7bf55590f",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 11,
+    "entity_id": "4eff98ba-25cb-4d62-966b-214eace5349c",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 11,
+    "entity_id": "c9677de7-fc7e-48a2-a905-1ab6185c479f",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 11,
+    "entity_id": "1ef3a0e1-4b78-4139-989f-5a9900148915",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 11,
+    "entity_id": "00d4a073-e141-4157-bdc2-2fee2a6c165a",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 11,
+    "entity_id": "618b4e4e-119a-4fe4-be3f-74032f8cccc8",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 11,
+    "entity_id": "9f7b7936-c5dc-4357-98af-e5783ef3b39a",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 11,
+    "entity_id": "2fb68334-0403-45a7-9132-d432bda8c48e",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 11,
+    "entity_id": "ef5850fc-0812-43da-a170-62d94ae30ffe",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 11,
+    "entity_id": "bd17a3fd-5e33-475f-bbdd-b8d94dec39b3",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 11,
+    "entity_id": "e7638262-6fac-4c89-9d2c-8de868490c7f",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 12,
+    "entity_id": "920ed6c6-52bb-4332-b959-3dfe2cb9764e",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 12,
+    "entity_id": "221da667-3906-4030-b4a6-2571cf4d3bcf",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 12,
+    "entity_id": "14e86469-b36a-479d-add2-c889978810fe",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 12,
+    "entity_id": "5cc5058a-1d72-4c89-bd5b-b3415529a758",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 12,
+    "entity_id": "cabcd8d0-e682-4b04-b577-7ccc5763c7c5",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 12,
+    "entity_id": "c31e7013-8661-4320-a577-b4c67b9f4f97",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 12,
+    "entity_id": "0c28e8a1-7437-405c-8842-dedb2740a8f5",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 12,
+    "entity_id": "995dba40-6d89-44cc-80d2-52820e365369",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 12,
+    "entity_id": "2034e2a6-8ea5-47fa-865f-69315dfb6972",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 12,
+    "entity_id": "03ff2951-e48c-4f72-8012-5698d9f934be",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 12,
+    "entity_id": "db9b5a76-2818-420a-aaeb-f4d973f02439",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 12,
+    "entity_id": "542493e7-c2d1-4d31-83eb-4a69a75077cd",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 13,
+    "entity_id": "bcda8acb-3429-4367-8fc4-125c1bd071fd",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 13,
+    "entity_id": "668310da-5e3d-436a-ae7f-5ba69a6634c1",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 13,
+    "entity_id": "fb374cf9-07f1-44f2-ac74-63a8c02fd82b",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 13,
+    "entity_id": "67f28f58-2df6-4258-9df6-f0d10a3117cc",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 13,
+    "entity_id": "1854abf8-0f5b-4ebd-afdd-79f3cfebdecf",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 13,
+    "entity_id": "919f5b3d-5e27-4329-a427-ee69e69c6647",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 13,
+    "entity_id": "f7cb4ddb-f7a8-405f-a1a9-838d0392af50",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 13,
+    "entity_id": "91956e3e-0784-4ea4-bf0f-6c04a5874075",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 13,
+    "entity_id": "81ec69da-f618-43d4-ae4b-9265a319dd79",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 13,
+    "entity_id": "5541e9b7-bbec-4245-8013-b1516edcb15e",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 13,
+    "entity_id": "d5622cef-2bc7-4b49-b86c-9d8a9257c6fb",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 14,
+    "entity_id": "62ba584f-ee98-4c45-85e5-e386792dcf18",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 14,
+    "entity_id": "b3d28536-ac31-40f0-b8e4-2afa4304a24b",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 14,
+    "entity_id": "5633bf43-8f1b-401c-9601-4b24ef5d7e7d",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 14,
+    "entity_id": "25c82a26-cf8b-4e39-914b-b88e6ecbfe1c",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 14,
+    "entity_id": "239a2d1d-b1dc-4757-ba3a-f746e5d3c93e",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 14,
+    "entity_id": "17eadee5-65d2-46cd-9e96-961141c280a0",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 14,
+    "entity_id": "9232eec2-ff52-4eb7-a382-106df0c5a811",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 14,
+    "entity_id": "3e20c959-977f-4195-8f99-50686373453a",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 14,
+    "entity_id": "b2057a30-ccb7-4948-ad80-a8a071c95032",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 15,
+    "entity_id": "0e86d22a-5e59-4b58-ac83-5917729e52d4",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 15,
+    "entity_id": "fbc5a447-1665-4f29-9869-9a16348c2818",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 15,
+    "entity_id": "501b081e-9742-490c-aa8f-8956aa391ce8",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 15,
+    "entity_id": "8418d8e3-f5fa-4b4e-8919-67de64b47de7",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 15,
+    "entity_id": "13943c56-6e74-41c0-9c20-11c549d5d76e",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 15,
+    "entity_id": "82f60058-da4c-4647-b61f-0dde833aa5cc",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 15,
+    "entity_id": "264bae39-b819-44ce-af20-4c9afa984fc1",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 15,
+    "entity_id": "6719ef29-79a9-4f7c-a261-5a310898cbc8",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 15,
+    "entity_id": "778b95da-edc3-4f0a-817c-b01ab3249182",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 15,
+    "entity_id": "5e7e2aba-fbc6-4c53-a164-6c60f19f6f90",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 16,
+    "entity_id": "dc8e3e4c-e9da-493f-a369-e58fb60ad129",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 16,
+    "entity_id": "37ff6a54-9d38-42e4-90cd-576ef561b0b8",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 16,
+    "entity_id": "a81c549d-14d1-4aea-8b70-6661c67aa2d6",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 16,
+    "entity_id": "4a1232c7-6508-4c25-8b38-c4b8267e1b9d",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 16,
+    "entity_id": "4b854d5b-f6f5-479b-9eaa-250bb8bb158c",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 16,
+    "entity_id": "f937c107-cec1-4059-875f-240cefde780c",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 16,
+    "entity_id": "ca85e31f-563f-4aa7-9fd0-231883d9d320",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 16,
+    "entity_id": "d6f52ccd-d029-4d9e-89f4-b598b005d7aa",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 16,
+    "entity_id": "da335c7b-a50c-4b20-adf2-be949a4a6dfc",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 16,
+    "entity_id": "cc23c447-0f41-4364-9d07-7558b06c3eda",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 16,
+    "entity_id": "a74cf37a-2fb4-45aa-944e-07d8457f3f7d",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 16,
+    "entity_id": "d2a1d6f5-6be4-4b21-9c1c-7b047ef9a733",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 16,
+    "entity_id": "ea854996-b139-487e-8451-2c00e8cf3388",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 17,
+    "entity_id": "f3e4ac79-1913-46b7-a331-b6024786bca7",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 17,
+    "entity_id": "3d480cfd-37a0-4805-9160-a80e8bbc2ad4",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 17,
+    "entity_id": "74a0d8d6-ed9d-40df-8f6e-4d2bb9cb007c",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 17,
+    "entity_id": "2e4a3fbe-7a8a-4423-93fe-6be756dce099",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 17,
+    "entity_id": "5b88b130-5814-411a-95f3-0eccbc4154e3",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 17,
+    "entity_id": "b357ef40-8f50-446c-933c-acfc603706df",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 17,
+    "entity_id": "5405d501-7199-4dfd-a7a0-cd6b662e4bde",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 17,
+    "entity_id": "0c28e8a1-7437-405c-8842-dedb2740a8f5",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 17,
+    "entity_id": "376aaa36-c148-4667-999c-5ae47bacfd87",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 17,
+    "entity_id": "6160e027-5c19-46f1-bb65-4578b3cf8b7c",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 18,
+    "entity_id": "542b9e4b-52e0-415a-9056-ea9bbd8c7172",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 18,
+    "entity_id": "695e38d3-741d-497c-a316-c6ae9753dd36",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 18,
+    "entity_id": "1297bf9b-bf90-422a-91bd-9015356ba90b",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 18,
+    "entity_id": "942ca824-b47d-4ab1-9ab6-4f5bbad91fa2",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 18,
+    "entity_id": "86340f04-e7a7-48b4-92aa-b4da0446faac",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 18,
+    "entity_id": "943a9f31-ffbd-41ce-bb7c-e8c45da7cd03",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 18,
+    "entity_id": "135dacba-08e4-4890-8949-c89cc0ac28d4",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 18,
+    "entity_id": "95189c84-30d1-4bae-a77d-61ddc7c8cd42",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 18,
+    "entity_id": "410c9ab6-3212-4dd9-833f-47837a8a2e44",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 18,
+    "entity_id": "9089eb48-2ae9-46d0-8011-bee6257daa99",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 18,
+    "entity_id": "aee0f22e-e9cd-40bf-8a57-0eee5978a9fd",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 18,
+    "entity_id": "1d13ac0b-2687-4998-b852-857a34ea4eb0",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 19,
+    "entity_id": "d61847f8-63ad-4be9-bdc0-86cb27e4d4e5",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 19,
+    "entity_id": "808a530b-b12d-42e1-bedc-045563274f66",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 19,
+    "entity_id": "b2185ee6-da6d-4e97-a83c-4e90a8facb0d",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 19,
+    "entity_id": "f9813907-a9df-401e-a098-a120745c336b",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 19,
+    "entity_id": "02b3dbfb-07dc-4a10-a411-2a8cef206044",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 19,
+    "entity_id": "ea2f102f-f278-4faf-8f07-be379135761b",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 19,
+    "entity_id": "dd8ee6ea-64c8-4972-bd12-3629d021a6bf",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 19,
+    "entity_id": "44ef2ee5-d137-4116-84f2-cd8bcb034093",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 19,
+    "entity_id": "380f9db1-073f-44ac-9ac3-7d8b5fe2caed",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 20,
+    "entity_id": "24617011-d5ed-46ef-bbd6-36c7e09994f6",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 20,
+    "entity_id": "24f8b292-0371-41e7-b6da-b03ca9aca0f9",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 20,
+    "entity_id": "cd826c08-0c56-482a-a6c9-6225793899b0",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 20,
+    "entity_id": "5541e9b7-bbec-4245-8013-b1516edcb15e",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 20,
+    "entity_id": "8e1e2664-1d98-4853-95a4-afde095dffe6",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 20,
+    "entity_id": "45f76838-cb36-4cd8-8502-4beeff9ab444",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 20,
+    "entity_id": "698260c5-612a-4641-a909-d265d31df367",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 20,
+    "entity_id": "f2d3822f-9cc1-4327-bdcb-a17b7b0f00ae",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 20,
+    "entity_id": "b3afd642-01b7-4f0d-90fc-3aafcb1439ef",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 20,
+    "entity_id": "6260ae6a-00e2-4c78-9c78-9275f39e4b92",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 20,
+    "entity_id": "cb02da78-e644-4629-bb8f-9921e2f23d5b",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 20,
+    "entity_id": "68652abc-5ded-4c8a-9f0a-bd11179f6ef7",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 21,
+    "entity_id": "c36400ba-bba5-4554-b636-f45ba57db0f1",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 21,
+    "entity_id": "0c86c966-e527-4a3c-97fa-4be05b6b0ef2",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 21,
+    "entity_id": "677bff3b-9f8e-4f2e-af3d-8869a754f93d",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 21,
+    "entity_id": "178c856b-4bad-424a-9143-17f0198e1cbf",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 21,
+    "entity_id": "de5e7651-0f81-488c-aeb8-2f5c8a8066de",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 21,
+    "entity_id": "25c5cd04-03d3-44d7-84d7-45a715c6ac6c",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 21,
+    "entity_id": "1b6335d1-9c9b-448e-8bb2-8b9de90b8b3d",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 21,
+    "entity_id": "5149ecc0-d344-4aa3-abbd-fceed73ba1fa",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 21,
+    "entity_id": "e8d1f2b8-dce6-4a36-903a-44d1d15e1396",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 21,
+    "entity_id": "fff432f3-2c04-4300-949f-06fee6d126f9",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 21,
+    "entity_id": "ec3f2f8a-fbc8-4c5f-a16f-377832adeac1",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 22,
+    "entity_id": "08afd284-48f3-4b4c-a9af-250297b9f5f6",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 22,
+    "entity_id": "3b26e55f-0bea-433b-80ba-f4f40fab1aaa",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 22,
+    "entity_id": "e3fa1cf3-deac-4097-bdad-c261f52fbdbd",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 22,
+    "entity_id": "e6dfe59f-8a58-4d53-b567-858395c0a519",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 22,
+    "entity_id": "a73b69be-4004-4b52-8a78-9438a85bb4bc",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 22,
+    "entity_id": "85f4b6e9-558d-41db-b0fd-532713643980",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 22,
+    "entity_id": "96246fe4-db11-4860-aa0b-d9ac3b38cab4",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 22,
+    "entity_id": "608f675c-d8f8-4056-a083-78d663e1c24f",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 22,
+    "entity_id": "39ecbc6d-18fd-43ab-9524-7112faa826ae",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 22,
+    "entity_id": "d11c694d-26a2-4e9a-a4e4-203259e8b1cb",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 22,
+    "entity_id": "dd2a986e-76ac-4d80-af55-c857c891b548",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 22,
+    "entity_id": "5508c983-f73f-48b4-a1ec-9e687ada7584",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 22,
+    "entity_id": "ff6ef1fd-4e4a-430a-8f74-769438a723cb",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 23,
+    "entity_id": "4189c6fb-e274-4f77-8484-da204754a12c",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 23,
+    "entity_id": "939ca6d7-6ad6-4334-9629-b54d15539661",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 23,
+    "entity_id": "da5ed149-b0d9-4f59-8a87-e881364698a6",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 23,
+    "entity_id": "32c52028-a4bd-47c5-81c6-11eeeeb18926",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 23,
+    "entity_id": "a345da9d-01e6-43e2-afb2-2ff299042117",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 23,
+    "entity_id": "8cf86669-b353-4c9e-9189-e6e7ba0aae72",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 23,
+    "entity_id": "f980e03d-5f93-45d4-a965-ea1de6fc01b7",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 23,
+    "entity_id": "fb0be184-8eb7-4203-af42-243a2c732f38",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 23,
+    "entity_id": "aa66ada6-3917-4a98-87c6-2dad5129af1c",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 23,
+    "entity_id": "4eb5f247-d8c7-4828-9b24-5766c61f0afe",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 23,
+    "entity_id": "2475b6e9-cce4-42ae-bb6c-20ab161becd4",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 23,
+    "entity_id": "4695808a-e2a0-430e-a0d5-d523fe5cad44",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 24,
+    "entity_id": "a74cf37a-2fb4-45aa-944e-07d8457f3f7d",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 24,
+    "entity_id": "34b6a765-5bbd-4ec8-8df8-8781e0cffff3",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 24,
+    "entity_id": "ac132130-ea92-40a5-8bbb-81e8c02728bb",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 24,
+    "entity_id": "2f76425d-c55b-4598-aee5-b31e6493ab62",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 24,
+    "entity_id": "58fc055c-d13e-40b2-a1b7-ddc221d2196a",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 24,
+    "entity_id": "cbd2b7ed-4cdb-4d79-b1c0-9dd2a4b56e57",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 24,
+    "entity_id": "d1b18e38-8133-4994-a32b-7fd1007b1112",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 24,
+    "entity_id": "b1cb831c-8f04-4b46-a6e6-d537c601ab13",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 24,
+    "entity_id": "4189c6fb-e274-4f77-8484-da204754a12c",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 24,
+    "entity_id": "1189e96a-46f8-4fd6-88cd-8e5e61c6cada",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 24,
+    "entity_id": "8b75aaa3-45ef-4e62-b881-bba731ed99e6",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 24,
+    "entity_id": "8faad95e-634a-41ab-b9b0-f1545ce371ef",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 24,
+    "entity_id": "d365a551-b604-4943-9185-4a3b2c7f57dd",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 25,
+    "entity_id": "573ef324-50d3-42a7-a7d0-d4e99f18cc33",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 25,
+    "entity_id": "632ecb50-c94f-417b-b69b-13942cf9bcb5",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 25,
+    "entity_id": "5cbbdca9-0fc5-416e-9fe9-267403eba18c",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 25,
+    "entity_id": "34b6a765-5bbd-4ec8-8df8-8781e0cffff3",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 25,
+    "entity_id": "af77905a-1e65-4e3b-8a6b-34844e6ef5c6",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 25,
+    "entity_id": "05dbf1b5-a74d-4b01-a95f-05f61749224d",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 25,
+    "entity_id": "8ab0aeca-ed86-472a-98c5-0817e5e32954",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 25,
+    "entity_id": "fe39aa73-25df-4b19-aa98-5b3e8f05f7df",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 25,
+    "entity_id": "2c91d46b-42ec-4387-bfd7-566a9bec4286",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 25,
+    "entity_id": "88e3476f-84b5-4a15-8b7e-45d572399bbd",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 25,
+    "entity_id": "c9f7ddd0-15e9-490d-bfce-4911448d9458",
+    "entity_type": "event",
+    "label": 0
+  },
+  {
+    "user_id": 26,
+    "entity_id": "c33b39b6-1a88-40bd-a5ff-db056e789a3f",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 26,
+    "entity_id": "1336b1f0-bf1f-4312-a560-3230571f7acd",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 26,
+    "entity_id": "eb359974-8dc3-4794-8571-740551b4a8b1",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 26,
+    "entity_id": "54b31a5d-21de-4a22-b4a1-6d01a0a79d54",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 26,
+    "entity_id": "e8faafb8-2a17-42d9-bb05-1a8174b9b3e8",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 26,
+    "entity_id": "428e69da-1c88-429f-a27d-f5830487bc62",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 26,
+    "entity_id": "a3cbc5d9-c3ce-406a-a01d-0cfd35ed2560",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 26,
+    "entity_id": "a8cf3177-103c-4f52-9f2c-2dbb616aab78",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 26,
+    "entity_id": "8dcaedd2-dcc2-480f-b8b6-2a9c73577308",
+    "entity_type": "place",
+    "label": 0
+  },
+  {
+    "user_id": 26,
+    "entity_id": "5eaf4a6e-7ce3-4028-bb70-aa4014e3ebe0",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 27,
+    "entity_id": "418cde78-2f97-4233-89bd-2ab0c004bfa7",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 27,
+    "entity_id": "0ae90f84-b6a9-47ac-b6b6-09014c6ba85b",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 27,
+    "entity_id": "a1a247b1-2eb1-4b27-8a6f-ce11b1da15aa",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 27,
+    "entity_id": "550a6e73-3367-4753-af52-d85077ee8d85",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 27,
+    "entity_id": "83d6548d-d10e-4ff2-9498-cdaf8475f895",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 27,
+    "entity_id": "e8236592-b65a-4e10-9afe-3e1dbee9a57c",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 27,
+    "entity_id": "c629c30b-eb18-48c4-8ef2-6f4611ab5320",
+    "entity_type": "item",
+    "label": 1
+  },
+  {
+    "user_id": 27,
+    "entity_id": "17763612-697b-4bbf-b5e4-ee7e2ac215e0",
+    "entity_type": "event",
+    "label": 1
+  },
+  {
+    "user_id": 27,
+    "entity_id": "a3cbc5d9-c3ce-406a-a01d-0cfd35ed2560",
+    "entity_type": "place",
+    "label": 1
+  },
+  {
+    "user_id": 27,
+    "entity_id": "d0acd9a6-ac8f-4f85-9728-6a4655f549c7",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 27,
+    "entity_id": "39a8fdb8-2a6a-4764-b3d1-2a7ce33adb71",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 27,
+    "entity_id": "b0879c68-e9a0-4d46-afb6-d5c58ac2a1a3",
+    "entity_type": "item",
+    "label": 0
+  },
+  {
+    "user_id": 27,
+    "entity_id": "11cbd82b-120a-43e7-b6c4-8c1dcc3b1705",
+    "entity_type": "item",
+    "label": 0
+  }
+]

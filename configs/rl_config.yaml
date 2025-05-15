@@ -1,0 +1,98 @@
+# Default configuration for the RL scheduler
+
+# Environment settings
+environment:
+  max_schedule_length: 10
+  default_activity_duration: 60  # minutes
+  schedule_padding_time: 30  # minutes at end of schedule
+  travel_time_buffer: 10  # minutes added to estimated travel times
+
+# Model settings
+model:
+  policy_type: "transformer"  # "mlp" or "transformer"
+  state_dim: 128
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  value_loss_coef: 0.5
+  entropy_coef: 0.01
+  max_grad_norm: 0.5
+  n_epochs: 10
+
+# Training settings
+training:
+  # Sample user for training
+  user_id: "training_user_1"
+  date: "2025-05-01"
+  start_time: "09:00"
+  end_time: "19:00"
+  location: [37.7749, -122.4194]  # San Francisco
+  preferences:
+    food: 0.8
+    drinks: 0.6
+    outdoor: 0.9
+    entertainment: 0.7
+    shopping: 0.4
+  budget: 200
+  transportation_modes: ["driving", "walking", "transit"]
+  
+  # Training parameters
+  learning_rate: 3.0e-4
+  batch_size: 64
+  n_iterations: 100
+  steps_per_iteration: 1024
+  episodes_per_iteration: 16
+  save_freq: 10
+  eval_freq: 5
+  log_freq: 1
+
+# Fine-tuning settings
+fine_tuning:
+  learning_rate: 1.0e-4
+  batch_size: 32
+  n_epochs: 5
+  clip_range: 0.1
+  
+  # Test environment for fine-tuning evaluation
+  test_user_id: "test_user_1"
+  test_date: "2025-05-02"
+  test_start_time: "10:00"
+  test_end_time: "18:00"
+  test_location: [37.7749, -122.4194]  # San Francisco
+  test_preferences:
+    food: 0.7
+    drinks: 0.5
+    outdoor: 0.8
+    entertainment: 0.9
+    shopping: 0.3
+  test_budget: 150
+  test_transportation_modes: ["driving", "walking", "transit"]
+
+# Evaluation settings
+evaluation:
+  test_user_id: "test_user_2"
+  test_date: "2025-05-03"
+  test_start_time: "10:00"
+  test_end_time: "20:00"
+  test_location: [37.7749, -122.4194]  # San Francisco
+  test_preferences:
+    food: 0.6
+    drinks: 0.7
+    outdoor: 0.5
+    entertainment: 0.8
+    shopping: 0.6
+  test_budget: 180
+  test_transportation_modes: ["driving", "walking", "transit"]
+
+# Reward function weights
+reward_weights:
+  preference_match: 2.0
+  special_offer: 3.0
+  travel_time: -5.0
+  cost: -3.0
+  time_efficiency: 2.0
+  weather_appropriateness: 2.0
+  schedule_length: 2.0
+  time_utilization: 10.0
+  category_variety: 5.0
+  budget_efficiency: 5.0

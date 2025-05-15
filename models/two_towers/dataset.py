@@ -5,7 +5,10 @@ Dataset implementation for the Two-Tower model.
 import torch
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
-from google.cloud import firestore
+try:
+    from google.cloud import firestore
+except ImportError:
+    firestore = None
 import pandas as pd
 from typing import Dict, List, Tuple, Optional, Set, Union
 
@@ -140,67 +143,25 @@ class UserPlaceInteractionDataset(Dataset):
     
     def _sample_negatives(self, user_id, n_samples):
         """
-        Sample negative places for a user.
-        
-        Args:
-            user_id: User ID
-            n_samples: Number of negative samples to generate
-        
-        Returns:
-            List of negative place IDs
+        Sample negative places for a user, ensuring no positives are sampled.
         """
-        # Get places the user has interacted with
         interacted = self.user_interacted_places.get(user_id, set())
-        
-        if self.negative_sampling == 'hard' and len(self.user_features) > 1:
-            # Hard negative sampling strategy
-            # 1. Find similar users
-            user_embedding = self.user_features[user_id]
-            
-            # Calculate cosine similarity with other users
-            similarities = {}
-            for other_id, other_embedding in self.user_features.items():
-                if other_id != user_id:
-                    sim = torch.cosine_similarity(
-                        user_embedding.unsqueeze(0),
-                        other_embedding.unsqueeze(0)
-                    ).item()
-                    similarities[other_id] = sim
-            
-            # Get top similar users
-            similar_users = sorted(similarities.items(), key=lambda x: x[1], reverse=True)
-            similar_users = similar_users[:min(10, len(similar_users))]
-            
-            # Collect places these users interacted with
-            candidate_places = set()
-            for similar_id, _ in similar_users:
-                similar_places = self.user_interacted_places.get(similar_id, set())
-                candidate_places.update(similar_places)
-            
-            # Remove places the user has already interacted with
-            candidate_places -= interacted
-            
-            # If we have enough candidates, sample from them
-            if len(candidate_places) >= n_samples:
-                return np.random.choice(list(candidate_places), n_samples, replace=False)
-        
-        # Fall back to regular sampling
+
         candidates = [pid for pid in self.all_place_ids if pid not in interacted]
-        
-        if len(candidates) <= n_samples:
-            # If we don't have enough candidates, sample with replacement
-            return np.random.choice(candidates, n_samples, replace=True)
-        
+
+        # If no candidates left (rare), fallback to all places
+        if not candidates:
+            candidates = self.all_place_ids
+
         if self.negative_sampling == 'popular':
-            # Calculate weights for candidates only
             candidate_indices = [self.all_place_ids.index(pid) for pid in candidates]
             candidate_weights = self.place_weights[candidate_indices]
             candidate_weights /= candidate_weights.sum()
-            
-            return np.random.choice(candidates, n_samples, replace=False, p=candidate_weights)
-        
-        # Random sampling
-        return np.random.choice(candidates, n_samples, replace=False)
+            return np.random.choice(candidates, n_samples, replace=(len(candidates) < n_samples), p=candidate_weights)
+
+        return np.random.choice(candidates, n_samples, replace=(len(candidates) < n_samples))
+
+
 
 
 class FirestoreDataLoader:
@@ -216,7 +177,10 @@ class FirestoreDataLoader:
             db: Firestore client instance
             cache_path: Optional path to cache the data
         """
+        if firestore is None:
+            raise ImportError("google-cloud-firestore is not installed. Install it or disable Firestore loading.")
         self.db = db or firestore.Client()
+
         self.cache_path = cache_path
         
         # Data storage

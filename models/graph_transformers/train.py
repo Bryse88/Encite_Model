@@ -1,99 +1,112 @@
 def train_epoch(model, graph, loader, optimizer, criterion, device, neg_samples=1):
     """
-    Train model for one epoch.
-    
-    Args:
-        model: HGT model
-        graph: Full graph data
-        loader: Data loader
-        optimizer: Optimizer
-        criterion: Loss function
-        device: Device to use
-        neg_samples: Number of negative samples per positive
-    
-    Returns:
-        average_loss: Average loss over all batches
+    Train model for one epoch with 'likes' edges.
     """
     model.train()
     total_loss = 0
-    
-    # Training loop
+
     for batch in tqdm(loader, desc="Training"):
         batch = batch.to(device)
         optimizer.zero_grad()
-        
-        # Forward pass
+
         out_dict = model(batch)
-        
-        # Compute loss for user-place interactions
         loss = 0
-        
-        # User-place link prediction loss
-        if ('user', 'visited', 'place') in batch.edge_index_dict:
-            edge_index = batch['user', 'visited', 'place'].edge_index
+
+        ###########################
+        # User-Place link loss
+        ###########################
+        if ('user', 'likes', 'place') in batch.edge_index_dict:
+            edge_index = batch['user', 'likes', 'place'].edge_index
             src, dst = edge_index
             pos_score = model.predict_user_place(
-                out_dict['user'][src], 
+                out_dict['user'][src],
                 out_dict['place'][dst]
             )
-            
-            # Generate negative edges
+
             neg_src, neg_dst = create_negative_edges(
-                edge_index, 
+                edge_index,
                 batch['user'].num_nodes,
                 batch['place'].num_nodes,
                 num_samples=neg_samples
             )
-            
+
             neg_score = model.predict_user_place(
-                out_dict['user'][neg_src], 
+                out_dict['user'][neg_src],
                 out_dict['place'][neg_dst]
             )
-            
-            # Binary cross-entropy for link prediction
+
             pos_loss = -torch.log(pos_score + 1e-15).mean()
             neg_loss = -torch.log(1 - neg_score + 1e-15).mean()
-            
-            up_loss = pos_loss + neg_loss
-            loss += up_loss
-        
-        # User-user link prediction loss
-        if ('user', 'friends_with', 'user') in batch.edge_index_dict:
-            edge_index = batch['user', 'friends_with', 'user'].edge_index
+
+            loss += pos_loss + neg_loss
+
+        ###########################
+        # User-Event link loss
+        ###########################
+        if ('user', 'likes', 'event') in batch.edge_index_dict:
+            edge_index = batch['user', 'likes', 'event'].edge_index
             src, dst = edge_index
-            pos_score = model.predict_user_user(
-                out_dict['user'][src], 
-                out_dict['user'][dst]
+            pos_score = model.predict_user_event(
+                out_dict['user'][src],
+                out_dict['event'][dst]
             )
-            
-            # Generate negative edges
+
             neg_src, neg_dst = create_negative_edges(
-                edge_index, 
+                edge_index,
                 batch['user'].num_nodes,
-                batch['user'].num_nodes,
+                batch['event'].num_nodes,
                 num_samples=neg_samples
             )
-            
-            neg_score = model.predict_user_user(
-                out_dict['user'][neg_src], 
-                out_dict['user'][neg_dst]
+
+            neg_score = model.predict_user_event(
+                out_dict['user'][neg_src],
+                out_dict['event'][neg_dst]
             )
-            
-            # Binary cross-entropy for link prediction
+
             pos_loss = -torch.log(pos_score + 1e-15).mean()
             neg_loss = -torch.log(1 - neg_score + 1e-15).mean()
-            
-            uu_loss = pos_loss + neg_loss
-            loss += uu_loss
-        
-        # Compute gradients and update parameters
+
+            loss += pos_loss + neg_loss
+
+        ###########################
+        # User-Item link loss
+        ###########################
+        if ('user', 'likes', 'item') in batch.edge_index_dict:
+            edge_index = batch['user', 'likes', 'item'].edge_index
+            src, dst = edge_index
+            pos_score = model.predict_user_item(
+                out_dict['user'][src],
+                out_dict['item'][dst]
+            )
+
+            neg_src, neg_dst = create_negative_edges(
+                edge_index,
+                batch['user'].num_nodes,
+                batch['item'].num_nodes,
+                num_samples=neg_samples
+            )
+
+            neg_score = model.predict_user_item(
+                out_dict['user'][neg_src],
+                out_dict['item'][neg_dst]
+            )
+
+            pos_loss = -torch.log(pos_score + 1e-15).mean()
+            neg_loss = -torch.log(1 - neg_score + 1e-15).mean()
+
+            loss += pos_loss + neg_loss
+
+        ###########################
+        # Backpropagation
+        ###########################
         loss.backward()
         optimizer.step()
-        
+
         total_loss += loss.item()
-    
+
     avg_loss = total_loss / len(loader)
     return avg_loss
+
 
 
 def main():
