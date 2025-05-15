@@ -143,6 +143,72 @@ def in_batch_train_step(model, batch, optimizer, device, use_context=False):
     return loss.item()
 
 
+# def explicit_train_step(model, batch, optimizer, device, use_context=False):
+#     """
+#     Training step using explicit negatives.
+    
+#     Args:
+#         model: Two-Tower model
+#         batch: Batch of user-place pairs with explicit negatives
+#         optimizer: Optimizer
+#         device: Device to use
+#         use_context: Whether to use context features
+    
+#     Returns:
+#         loss: Training loss for this batch
+#     """
+#     optimizer.zero_grad()
+    
+#     # Move batch to device
+#     user_features = batch['user_features'].to(device)
+#     pos_place_features = batch['pos_place_features'].to(device)
+#     neg_place_features = batch['neg_place_features'].to(device)
+    
+#     batch_size = user_features.size(0)
+#     neg_samples = neg_place_features.size(1)
+    
+#     # Reshape for batch processing
+#     user_features_expanded = user_features.unsqueeze(1).expand(-1, neg_samples + 1, -1)
+#     user_features_flat = user_features_expanded.reshape(-1, user_features.size(1))
+    
+#     # Combine positive and negative place features
+#     all_place_features = torch.cat([
+#         pos_place_features.unsqueeze(1),
+#         neg_place_features
+#     ], dim=1)
+#     all_place_features_flat = all_place_features.reshape(-1, pos_place_features.size(1))
+    
+#     # Get similarity scores
+#     if use_context and 'pos_context' in batch and 'neg_contexts' in batch:
+#         pos_context = batch['pos_context'].to(device)
+#         neg_contexts = batch['neg_contexts'].to(device)
+        
+#         # Combine contexts
+#         all_contexts = torch.cat([
+#             pos_context.unsqueeze(1),
+#             neg_contexts
+#         ], dim=1)
+#         all_contexts_flat = all_contexts.reshape(-1, pos_context.size(1))
+        
+#         scores = model(user_features_flat, all_place_features_flat, all_contexts_flat)
+#     else:
+#         scores = model(user_features_flat, all_place_features_flat)
+    
+#     # Reshape scores
+#     scores = scores.reshape(batch_size, neg_samples + 1)
+    
+#     # Create targets: first column is positive (1), rest are negative (0)
+#     targets = torch.zeros_like(scores)
+#     targets[:, 0] = 1.0
+    
+#     # Compute cross-entropy loss
+#     loss = nn.BCEWithLogitsLoss()(scores, targets)
+    
+#     # Backward and optimize
+#     loss.backward()
+#     optimizer.step()
+    
+#     return loss.item()
 def explicit_train_step(model, batch, optimizer, device, use_context=False):
     """
     Training step using explicit negatives.
@@ -167,51 +233,61 @@ def explicit_train_step(model, batch, optimizer, device, use_context=False):
     batch_size = user_features.size(0)
     neg_samples = neg_place_features.size(1)
     
-    # Reshape for batch processing
-    user_features_expanded = user_features.unsqueeze(1).expand(-1, neg_samples + 1, -1)
-    user_features_flat = user_features_expanded.reshape(-1, user_features.size(1))
+    # Process each positive pair and its negatives separately
+    total_loss = 0.0
     
-    # Combine positive and negative place features
-    all_place_features = torch.cat([
-        pos_place_features.unsqueeze(1),
-        neg_place_features
-    ], dim=1)
-    all_place_features_flat = all_place_features.reshape(-1, pos_place_features.size(1))
-    
-    # Get similarity scores
-    if use_context and 'pos_context' in batch and 'neg_contexts' in batch:
-        pos_context = batch['pos_context'].to(device)
-        neg_contexts = batch['neg_contexts'].to(device)
+    for i in range(batch_size):
+        # Get current user and positive place
+        user_feat = user_features[i].unsqueeze(0)  # Add batch dimension
+        pos_place_feat = pos_place_features[i].unsqueeze(0)  # Add batch dimension
         
-        # Combine contexts
-        all_contexts = torch.cat([
-            pos_context.unsqueeze(1),
-            neg_contexts
-        ], dim=1)
-        all_contexts_flat = all_contexts.reshape(-1, pos_context.size(1))
+        # Get negative places for this user
+        neg_place_feats = neg_place_features[i]
         
-        scores = model(user_features_flat, all_place_features_flat, all_contexts_flat)
-    else:
-        scores = model(user_features_flat, all_place_features_flat)
+        # Compute score for positive pair
+        if use_context and 'pos_context' in batch:
+            pos_context = batch['pos_context'][i].unsqueeze(0)
+            pos_score = model(user_feat, pos_place_feat, pos_context)
+        else:
+            pos_score = model(user_feat, pos_place_feat)
+        
+        # Compute scores for negative pairs
+        neg_scores = []
+        for j in range(neg_samples):
+            neg_feat = neg_place_feats[j].unsqueeze(0)
+            
+            if use_context and 'neg_contexts' in batch:
+                neg_context = batch['neg_contexts'][i, j].unsqueeze(0)
+                neg_score = model(user_feat, neg_feat, neg_context)
+            else:
+                neg_score = model(user_feat, neg_feat)
+            
+            neg_scores.append(neg_score)
+        
+        # Stack scores
+        if neg_scores:
+            neg_scores = torch.cat(neg_scores, dim=0)
+            all_scores = torch.cat([pos_score, neg_scores], dim=0)
+            
+            # Create targets: first is positive, rest are negative
+            targets = torch.zeros_like(all_scores)
+            targets[0] = 1.0
+            
+            # Compute loss for this user
+            user_loss = nn.BCEWithLogitsLoss()(all_scores, targets)
+            total_loss += user_loss
     
-    # Reshape scores
-    scores = scores.reshape(batch_size, neg_samples + 1)
-    
-    # Create targets: first column is positive (1), rest are negative (0)
-    targets = torch.zeros_like(scores)
-    targets[:, 0] = 1.0
-    
-    # Compute cross-entropy loss
-    loss = nn.BCEWithLogitsLoss()(scores, targets)
+    # Average loss over batch
+    avg_loss = total_loss / batch_size
     
     # Backward and optimize
-    loss.backward()
+    avg_loss.backward()
     optimizer.step()
     
-    return loss.item()
+    return avg_loss.item()
 
 
-def evaluate_model(model, dataloader, device, use_context=False):
+# def evaluate_model(model, dataloader, device, use_context=False):
     """
     Evaluate model on validation set.
     
@@ -303,7 +379,88 @@ def evaluate_model(model, dataloader, device, use_context=False):
         'recall@k': recall_k
     }
 
-
+def evaluate_model(model, dataloader, device, use_context=False):
+    """
+    Evaluate model on validation set.
+    
+    Args:
+        model: Two-Tower model
+        dataloader: DataLoader for validation set
+        device: Device to use
+        use_context: Whether to use context features
+    
+    Returns:
+        metrics: Dictionary of evaluation metrics
+    """
+    model.eval()
+    all_scores = []
+    all_labels = []
+    
+    with torch.no_grad():
+        for batch in dataloader:
+            # Move batch to device
+            user_features = batch['user_features'].to(device)
+            pos_place_features = batch['pos_place_features'].to(device)
+            neg_place_features = batch['neg_place_features'].to(device)
+            
+            batch_size = user_features.size(0)
+            neg_samples = neg_place_features.size(1)
+            
+            # Process each example separately
+            for i in range(batch_size):
+                user_feat = user_features[i].unsqueeze(0)
+                pos_place_feat = pos_place_features[i].unsqueeze(0)
+                
+                # Get score for positive pair
+                if use_context and 'pos_context' in batch:
+                    pos_context = batch['pos_context'][i].unsqueeze(0)
+                    pos_score = model(user_feat, pos_place_feat, pos_context).item()
+                else:
+                    pos_score = model(user_feat, pos_place_feat).item()
+                
+                # Get scores for negative pairs
+                neg_scores = []
+                for j in range(neg_samples):
+                    neg_feat = neg_place_features[i, j].unsqueeze(0)
+                    
+                    if use_context and 'neg_contexts' in batch:
+                        neg_context = batch['neg_contexts'][i, j].unsqueeze(0)
+                        neg_score = model(user_feat, neg_feat, neg_context).item()
+                    else:
+                        neg_score = model(user_feat, neg_feat).item()
+                    
+                    neg_scores.append(neg_score)
+                
+                # Combine scores and labels
+                example_scores = [pos_score] + neg_scores
+                example_labels = [1.0] + [0.0] * len(neg_scores)
+                
+                all_scores.extend(example_scores)
+                all_labels.extend(example_labels)
+    
+    # Convert to numpy arrays
+    all_scores = np.array(all_scores)
+    all_labels = np.array(all_labels)
+    
+    # Compute metrics
+    auc = roc_auc_score(all_labels, all_scores)
+    ap = average_precision_score(all_labels, all_scores)
+    
+    # Compute precision@k and recall@k
+    k_values = [1, 5, 10]
+    precision_k = {}
+    recall_k = {}
+    
+    for k in k_values:
+        precision_k[k] = compute_precision_at_k(all_scores, all_labels, k)
+        recall_k[k] = compute_recall_at_k(all_scores, all_labels, k)
+    
+    return {
+        'auc': auc,
+        'ap': ap,
+        'precision@k': precision_k,
+        'recall@k': recall_k
+    }
 def compute_precision_at_k(scores, labels, k):
     """Compute precision@k for binary labels."""
     # Sort by score
