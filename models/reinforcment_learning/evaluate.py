@@ -17,8 +17,8 @@ from firebase_admin import firestore, initialize_app
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from models.reinforcement_learning.env.schedule_env import ScheduleEnv
-from models.reinforcement_learning.train import PPOTrainer
+from models.reinforcment_learning.env.schedule_env import ScheduleEnv
+from models.reinforcment_learning.train import PPOTrainer
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)

@@ -12,6 +12,7 @@ import argparse
 import json
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 import torch.optim as optim
 import numpy as np
 from typing import Dict, List, Tuple, Any, Optional
@@ -20,10 +21,10 @@ from google.cloud import storage
 from firebase_admin import firestore, initialize_app
 import gym
 
-from models.reinforcement_learning.env.schedule_env import ScheduleEnv
-from models.reinforcement_learning.policies.mlp_policy import MLPPolicy
-from models.reinforcement_learning.policies.transformer_policy import TransformerPolicy
-
+from models.reinforcment_learning.env.mpl_policy import MLPPolicy
+from models.reinforcment_learning.env.hybrid_policy import HybridPolicy
+from models.reinforcment_learning.env.transformer_policy import TransformerPolicy
+from models.reinforcment_learning.env.schedule_env import ScheduleEnv
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -89,6 +90,7 @@ class PPOTrainer:
         # Policy is initialized with environment parameters during training
         self.policy = None
         self.optimizer = None
+    
         
     def _init_policy(self, env: ScheduleEnv):
         """
@@ -96,27 +98,27 @@ class PPOTrainer:
         
         Args:
             env: Schedule environment
-        """
+        """        
         action_dim = env.action_space.n
         
-        if self.policy_type == 'mlp':
-            self.policy = MLPPolicy(
-                state_dim=self.state_dim,
-                action_dim=action_dim,
-                hidden_dims=[256, 256]
-            ).to(self.device)
-        elif self.policy_type == 'transformer':
-            self.policy = TransformerPolicy(
-                state_dim=self.state_dim,
-                action_dim=action_dim,
-                embedding_dim=64,
-                nhead=4,
-                num_layers=2,
-                dropout=0.1
-            ).to(self.device)
-        else:
-            raise ValueError(f"Unknown policy type: {self.policy_type}")
+        # Create policy configuration
+        config = {
+            'state_dim': self.state_dim,
+            'hidden_dims': [256, 256],
+            'embedding_dim': 64,
+            'nhead': 4,
+            'num_layers': 2,
+            'dropout': 0.1
+        }
         
+        # Create policy using factory
+        self.policy = create_policy(
+            policy_type=self.policy_type,
+            action_dim=action_dim,
+            config=config
+        ).to(self.device)
+        
+        # Initialize optimizer
         self.optimizer = optim.Adam(
             self.policy.parameters(), 
             lr=self.actor_lr
@@ -440,39 +442,43 @@ class PPOTrainer:
                 self.save(os.path.join(model_dir, f'{self.policy_type}_policy_iter_{iteration}.pt'))
                 logger.info(f"Saved model at iteration {iteration}")
     
-    def evaluate(self, env: ScheduleEnv, n_episodes: int = 10) -> List[float]:
-        """
-        Evaluate the policy.
-        
-        Args:
-            env: Schedule environment
-            n_episodes: Number of episodes to evaluate
-            
-        Returns:
-            List of episode rewards
-        """
-        rewards = []
-        
+    def evaluate(self, env: ScheduleEnv, n_episodes: int = 10) -> Dict[str, float]:
+        total_rewards = []
+        schedule_lengths = []
+        time_utilizations = []
+        budget_utilizations = []
+        preference_matches = []
+        category_varieties = []
+
         for _ in range(n_episodes):
             state = env.reset()
             done = False
-            episode_reward = 0
-            
+            total_reward = 0
+
             while not done:
-                # Get action from policy (deterministic)
                 tensor_state = self._normalize_state(state)
                 action, _ = self.policy.act(tensor_state, deterministic=True)
-                
-                # Take action in environment
-                next_state, reward, done, _ = env.step(action)
-                episode_reward += reward
-                
-                # Move to next state
+                next_state, reward, done, info = env.step(action)
+                total_reward += reward
                 state = next_state
-            
-            rewards.append(episode_reward)
-            
-        return rewards
+
+            total_rewards.append(total_reward)
+            schedule_lengths.append(info.get('schedule_length', 0))
+            time_utilizations.append(info.get('time_utilization', 0.0))
+            budget_utilizations.append(info.get('budget_utilization', 0.0))
+            preference_matches.append(info.get('preference_match', 0.0))
+            category_varieties.append(info.get('category_variety', 0.0))
+
+        metrics = {
+            'avg_reward': np.mean(total_rewards),
+            'avg_schedule_length': np.mean(schedule_lengths),
+            'avg_time_utilization': np.mean(time_utilizations),
+            'avg_budget_utilization': np.mean(budget_utilizations),
+            'avg_preference_match': np.mean(preference_matches),
+            'avg_category_variety': np.mean(category_varieties),
+        }
+        return metrics
+
     
     def save(self, path: str):
         """
@@ -512,36 +518,78 @@ class PPOTrainer:
         self.policy.load_state_dict(checkpoint['state_dict'])
 
 
-    def parse_args():
-        """Parse command line arguments."""
-        parser = argparse.ArgumentParser(description='Train RL policy for schedule optimization')
+@staticmethod
+def create_policy(policy_type: str, 
+                 action_dim: int,
+                 config: Dict[str, Any]):
+        """
+        Factory function to create a policy instance.
     
-        parser.add_argument('--policy-type', type=str, default='transformer', choices=['mlp', 'transformer'],
-                       help='Type of policy to use')
-        parser.add_argument('--iterations', type=int, default=100,
-                       help='Number of training iterations')
-        parser.add_argument('--steps-per-iteration', type=int, default=1024,
-                       help='Number of steps per iteration')
-        parser.add_argument('--episodes-per-iteration', type=int, default=16,
-                       help='Number of episodes per iteration')
-        parser.add_argument('--batch-size', type=int, default=64,
-                       help='Batch size for training')
-        parser.add_argument('--learning-rate', type=float, default=3e-4,
-                       help='Learning rate')
-        parser.add_argument('--gamma', type=float, default=0.99,
-                       help='Discount factor')
-        parser.add_argument('--save-freq', type=int, default=10,
-                       help='Frequency of saving models')
-        parser.add_argument('--model-dir', type=str, default='models/reinforcement_learning/saved_models',
-                       help='Directory to save models')
-        parser.add_argument('--config', type=str, default='configs/rl_config.yaml',
-                       help='Path to config file')
-        parser.add_argument('--device', type=str, default='cuda' if torch.cuda.is_available() else 'cpu',
-                       help='Device to use for training')
+        Args:
+            policy_type: Type of policy ('mlp', 'transformer', or 'hybrid')
+            action_dim: Dimension of the action space
+            config: Model configuration parameters
+        
+        Returns:
+            Instantiated policy
+        """
+        if policy_type == 'mlp':
+            return MLPPolicy(
+                state_dim=config.get('state_dim', 128),
+                action_dim=action_dim,
+                hidden_dims=config.get('hidden_dims', [256, 256])
+            )
+        elif policy_type == 'transformer':
+            return TransformerPolicy(
+                state_dim=config.get('state_dim', 128),
+                action_dim=action_dim,
+                embedding_dim=config.get('embedding_dim', 64),
+                nhead=config.get('nhead', 4),
+                num_layers=config.get('num_layers', 2),
+                dropout=config.get('dropout', 0.1)
+            )
+        elif policy_type == 'hybrid':
+            return HybridPolicy(
+                state_dim=config.get('state_dim', 128),
+                action_dim=action_dim,
+                embedding_dim=config.get('embedding_dim', 64),
+                hidden_dims=config.get('hidden_dims', [256, 256]),
+                nhead=config.get('nhead', 4),
+                num_layers=config.get('num_layers', 2),
+                dropout=config.get('dropout', 0.1)
+            )
+        else:
+            raise ValueError(f"Unknown policy type: {policy_type}")
     
-        return parser.parse_args()
 
+def parse_args():
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(description='Train RL policy for schedule optimization')
 
+    parser.add_argument('--policy-type', type=str, default='transformer', choices=['mlp', 'transformer'],
+                    help='Type of policy to use')
+    parser.add_argument('--iterations', type=int, default=100,
+                    help='Number of training iterations')
+    parser.add_argument('--steps-per-iteration', type=int, default=1024,
+                    help='Number of steps per iteration')
+    parser.add_argument('--episodes-per-iteration', type=int, default=16,
+                    help='Number of episodes per iteration')
+    parser.add_argument('--batch-size', type=int, default=64,
+                    help='Batch size for training')
+    parser.add_argument('--learning-rate', type=float, default=3e-4,
+                    help='Learning rate')
+    parser.add_argument('--gamma', type=float, default=0.99,
+                    help='Discount factor')
+    parser.add_argument('--save-freq', type=int, default=10,
+                    help='Frequency of saving models')
+    parser.add_argument('--model-dir', type=str, default='models/reinforcement_learning/saved_models',
+                    help='Directory to save models')
+    parser.add_argument('--config', type=str, default='configs/rl_config.yaml',
+                    help='Path to config file')
+    parser.add_argument('--device', type=str, default='cuda' if torch.cuda.is_available() else 'cpu',
+                    help='Device to use for training')
+
+    return parser.parse_args()
 def main():
     """Main function."""
     args = parse_args()
@@ -589,6 +637,7 @@ def main():
         save_freq=args.save_freq,
         model_dir=args.model_dir
     )
+    
 
 
 if __name__ == '__main__':
